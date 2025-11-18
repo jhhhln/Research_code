@@ -36,7 +36,7 @@ if __name__ == "__main__":
     I = 1
     m = np.array([1,6])
     c =5
-    r = 15
+    r = 7.5
     b = 10
     a=1
 

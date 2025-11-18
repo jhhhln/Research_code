@@ -45,7 +45,7 @@ if __name__ == "__main__":
     # Z1_value=Z1_y(y,I,m,c,r,b)
     # print("Z1 value:", Z1_value)
 
-    Z2_value=Z2_y(y,I,m,c,r,a,b)
+    Z2_value=Z2_y(y,I,m,c,r,b)
     print("Z2 value:", Z2_value)
 
     # Z3_value=Z3_y(y,I,m,c,r,b)
