@@ -19,7 +19,7 @@ def compute_Z3_values(I, m, c, r,a, b):
     
     while lambda_max - lambda_min > epsilon:
         lambda_mid = (lambda_min + lambda_max) / 2
-        y_opt_mid, g_opt_mid = optimize_y(I, m, c, r,a, b, lambda_val=lambda_mid)
+        y_opt_mid, g_opt_mid = optimize_y(I, m, c, r,a, b, lambda_val=lambda_mid, lipo_iters=25)
         
         if g_opt_mid <= 0:
             lambda_min = lambda_mid

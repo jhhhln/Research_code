@@ -10,7 +10,7 @@ def Z1_y(y,I,m,c,r,a,b):
     value=-value
     return value
 
-
+optimize_s(I, m, c, r,a,b, y, lambda_val)
 def Z2_y(y,I,m,c,r,a,b):
     _,R=optimize_s(I, m, c, r, a,b, y, lambda_val=1)
     return R
@@ -23,7 +23,7 @@ def Z3_y(y,I,m,c,r,a,b):
     
     while lambda_max - lambda_min > tolerance:
         lambda_mid = (lambda_min + lambda_max) / 2
-        s_opt_mid, value = optimize_s(I, m, c, r,a, b, y, lambda_val=lambda_mid)
+        s_opt_mid, value = optimize_s(I, m, c, r,a, b, y, lambda_val=lambda_mid, num_iterations=30)
         if value <= 0:
             lambda_min = lambda_mid
             lambda_star = lambda_mid

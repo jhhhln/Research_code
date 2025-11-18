@@ -86,17 +86,17 @@ def run_parallel_experiment_mub(mu_values, r, I, c,a, b, max_workers=None):
 
 if __name__ == "__main__":
     # 参数设置
-    r = 1
-    I = 1
-    c = 0.1
-    b =5
-    a=1
-    mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
+    # r = 1
+    # I = 1
+    # c = 0.1
+    # b =5
+    # a=1
+    # mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    # df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
 
-    df_mu.to_csv('cross_mub_1.csv', index=False)
-    print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
+    # df_mu.to_csv('cross_mub_1.csv', index=False)
+    # print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
 
     r = 1
     I = 1
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     a=1
     mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    df_mu = run_single_thread(mu_values, r, I, c, a, b)
     df_mu.to_csv('cross_mub_2.csv', index=False)
     print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
 
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     a=1
     mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    df_mu = run_single_thread(mu_values, r, I, c, a, b)
 
     df_mu.to_csv('cross_mub_3.csv', index=False)
     print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
@@ -130,7 +130,7 @@ if __name__ == "__main__":
     a=1
     mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    df_mu = run_single_thread(mu_values, r, I, c, a, b)
 
     df_mu.to_csv('cross_mub_4.csv', index=False)
     print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")

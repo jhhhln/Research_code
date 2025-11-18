@@ -1,15 +1,15 @@
 import numpy as np
-from R_star_concave import optimize_y
+from lipstiz import optimize_y
 
 
 #输出的就是每个准则下的最优表现
 def compute_Z1_values(I, m, c, r, a,b):
-    y_opt_Z1,Z1=optimize_y(I, m, c, r, a,b, lambda_val=0)
+    y_opt_Z1,Z1=optimize_y(I, m, c, r, a,b, lambda_val=0, lipo_iters=25)
     Z1=-Z1
     return Z1,y_opt_Z1
 
 def compute_Z2_values(I, m, c, r,a, b):
-    y_opt_Z2,Z2=optimize_y(I, m, c, r,a, b, lambda_val=1)
+    y_opt_Z2,Z2=optimize_y(I, m, c, r,a, b, lambda_val=1,lipo_iters=25)
     return Z2,y_opt_Z2
 
 def compute_Z3_values(I, m, c, r,a, b):
@@ -19,7 +19,7 @@ def compute_Z3_values(I, m, c, r,a, b):
     
     while lambda_max - lambda_min > epsilon:
         lambda_mid = (lambda_min + lambda_max) / 2
-        y_opt_mid, g_opt_mid = optimize_y(I, m, c, r,a, b, lambda_val=lambda_mid)
+        y_opt_mid, g_opt_mid = optimize_y(I, m, c, r,a, b, lambda_val=lambda_mid, lipo_iters=30)
         
         if g_opt_mid <= 0:
             lambda_min = lambda_mid

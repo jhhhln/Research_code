@@ -47,56 +47,39 @@ def run_single_mub(mu, r, I, c,a,b):
         print(f"⚠️ Error at μ={mu:.3f}: {str(e)}")
         return None
 
-# def run_single_thread(mu_values, r, I, c, a, b):
-#     """单线程顺序执行所有 μ 实验，用于调试卡住的问题"""
+
+# def run_parallel_experiment_mub(mu_values, r, I, c,a, b, max_workers=None):
+#     """
+#     使用多进程并行执行 μ/b 实验
+#     max_workers: 默认 None 表示使用所有可用 CPU 核心
+#     """
 #     results = []
+#     with ProcessPoolExecutor(max_workers=max_workers) as executor:
+#         futures = {
+#             executor.submit(run_single_mub, mu, r, I, c,a, b): mu
+#             for mu in mu_values
+#         }
+#         for future in tqdm(as_completed(futures), total=len(futures), desc="Running μ experiments"):
+#             res = future.result()
+#             if res is not None:
+#                 results.append(res)
 
-#     for mu in mu_values:
-#         print(f"正在计算 μ = {mu} ...")
-
-#         res = run_single_mub(mu, r, I, c, a, b)
-
-#         if res is None:
-#             print(f"μ = {mu} 出错")
-#         else:
-#             print(f"μ = {mu} 完成")
-#             results.append(res)
-
-#     print("单线程计算结束！")
 #     return pd.DataFrame(results)
-
-def run_parallel_experiment_mub(mu_values, r, I, c,a, b, max_workers=None):
-    """
-    使用多进程并行执行 μ/b 实验
-    max_workers: 默认 None 表示使用所有可用 CPU 核心
-    """
-    results = []
-    with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        futures = {
-            executor.submit(run_single_mub, mu, r, I, c,a, b): mu
-            for mu in mu_values
-        }
-        for future in tqdm(as_completed(futures), total=len(futures), desc="Running μ experiments"):
-            res = future.result()
-            if res is not None:
-                results.append(res)
-
-    return pd.DataFrame(results)
 
 
 if __name__ == "__main__":
     # 参数设置
-    r = 1
-    I = 1
-    c = 0.1
-    b =5
-    a=1
-    mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
+    # r = 1
+    # I = 1
+    # c = 0.1
+    # b =5
+    # a=1
+    # mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    # df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
 
-    df_mu.to_csv('cross_mub_1.csv', index=False)
-    print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
+    # df_mu.to_csv('cross_mub_1.csv', index=False)
+    # print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
 
     r = 1
     I = 1
@@ -105,7 +88,8 @@ if __name__ == "__main__":
     a=1
     mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=3)
+
     df_mu.to_csv('cross_mub_2.csv', index=False)
     print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
 
@@ -118,7 +102,7 @@ if __name__ == "__main__":
     a=1
     mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    df_mu = run_single_mub(mu_values, r, I, c,a,b, max_workers=3)
 
     df_mu.to_csv('cross_mub_3.csv', index=False)
     print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
@@ -130,7 +114,7 @@ if __name__ == "__main__":
     a=1
     mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=3)
 
     df_mu.to_csv('cross_mub_4.csv', index=False)
     print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")

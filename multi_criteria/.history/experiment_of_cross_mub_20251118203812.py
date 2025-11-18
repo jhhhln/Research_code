@@ -130,7 +130,7 @@ if __name__ == "__main__":
     a=1
     mu_values =[1,1.5,2,2.5,3,3.5,4,4.5,5]
 
-    df_mu = run_parallel_experiment_mub(mu_values, r, I, c,a,b, max_workers=4)
+    df_mu = run_single_thread(mu_values, r, I, c, a, b)
 
     df_mu.to_csv('cross_mub_4.csv', index=False)
     print("✅ 实验完成，结果已保存为 multi_mu_b_experiment.csv")
