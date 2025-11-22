@@ -34,14 +34,14 @@ def compute_Z3_values(I, m, c, r, b):
 
 if __name__ == "__main__":
     I = 1
-    m = np.array([1,2])
-    c = 0.3
+    m = np.array([1, 2.5])
+    c = 0.5
     r = 1
-    b = 3
+    b = 5
 
     # Z1,y1=compute_Z1_values(I, m, c, r, b)
     # print("Z1 value:", Z1," at y:",y1)
-    Z2,y2=compute_Z2_values(I, m, c, r, b)
-    print("Z2 value:", Z2," at y:",y2)
-    # Z3,y3=compute_Z3_values(I, m, c, r, b)
-    # print("Z3 value:", Z3," at y:",y3)
+    # Z2,y2=compute_Z2_values(I, m, c, r, b)
+    # print("Z2 value:", Z2," at y:",y2)
+    Z3,y3=compute_Z3_values(I, m, c, r, b)
+    print("Z3 value:", Z3," at y:",y3)

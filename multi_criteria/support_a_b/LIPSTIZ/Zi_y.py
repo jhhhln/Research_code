@@ -1,4 +1,4 @@
-from support_a_b.Concave.sdp_with_a_b import solve_sdp
+from sdp_with_a_b import solve_sdp
 from lipstiz import optimize_s
 import numpy as np
 

@@ -4,7 +4,7 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm  
 from Zi_y import Z1_y, Z2_y, Z3_y
 from single_criteria import compute_Z1_values, compute_Z2_values, compute_Z3_values
-from lipstiz import optimize_y
+from R_star_concave import optimize_y
 from true_dis import (
     opt_uniform, uniform_expected_profit,
     opt_norm, expected_profit_norm,
@@ -79,5 +79,5 @@ if __name__ == "__main__":
     c_values = np.arange(0.05,1.0,0.05)
 
     results_df = run_numerical_experiment_multi(c_values, r, I, m, b, max_workers=3)
-    results_df.to_csv('result_single_rc_I1.csv', index=False)
+    results_df.to_csv('result_single_rc_I1_concave_ver.csv', index=False)
     print("✅ 实验结果 multi_rc_vary_I1.csv 已保存")

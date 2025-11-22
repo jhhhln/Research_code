@@ -16,9 +16,9 @@ def run_single_experiment(c, r, I, m, b):
     Z1_star, y1 = compute_Z1_values(I, m, c, r, b)
     Z2_star, y2 = compute_Z2_values(I, m, c, r, b)
     Z3_star, y3 = compute_Z3_values(I, m, c, r, b)
-    x1,Z_x1=optimize_y(I, m, c, r, b, lambda_val=0.25)
-    x2,Z_x2=optimize_y(I, m, c, r, b, lambda_val=0.5)
-    x3,Z_x3=optimize_y(I, m, c, r, b, lambda_val=0.75)
+    x1,Z_x1=optimize_y(I, m, c, r, b, lambda_val=0.25,lipo_iters=30)
+    x2,Z_x2=optimize_y(I, m, c, r, b, lambda_val=0.5,lipo_iters=30)
+    x3,Z_x3=optimize_y(I, m, c, r, b, lambda_val=0.75,lipo_iters=30)
 
     Z2_y1=Z2_y(y1,I,m,c,r,b)
     Z3_y1=Z3_y(y1,I,m,c,r,b)
@@ -72,12 +72,12 @@ def run_numerical_experiment_multi(c_values, r, I, m, b, max_workers=None):
 
 
 if __name__ == "__main__":
-    I = 1
-    m = np.array([1, 2.5])
+    I = 2
+    m = np.array([1, 2.5,7.5])
     r = 1
     b = 5
     c_values = np.arange(0.05,1.0,0.05)
 
-    results_df = run_numerical_experiment_multi(c_values, r, I, m, b, max_workers=3)
-    results_df.to_csv('result_single_rc_I1.csv', index=False)
+    results_df = run_numerical_experiment_multi(c_values, r, I, m, b, max_workers=4)
+    results_df.to_csv('result_single_rc_I2.csv', index=False)
     print("✅ 实验结果 multi_rc_vary_I1.csv 已保存")

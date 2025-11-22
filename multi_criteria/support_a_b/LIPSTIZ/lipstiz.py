@@ -1,7 +1,7 @@
 import numpy as np
 import random
 from scipy.optimize import minimize_scalar, minimize
-from support_a_b.Concave.sdp_with_a_b import solve_sdp
+from sdp_with_a_b import solve_sdp
 
 
 def optimize_s(I, m, c, r, a, b, y, lambda_val, num_iterations):

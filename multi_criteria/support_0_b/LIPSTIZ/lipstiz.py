@@ -123,11 +123,11 @@ def optimize_y(I, m, c, r, b, lambda_val, lipo_iters):
         if getattr(res, 'success', False):
             optimal_y = getattr(res, 'x', None)
             min_g_value = getattr(res, 'fun', 0)
-            print(f'关于y的优化成功,最优y: {optimal_y}, 最小g(s,y): {min_g_value}')
+            print(f'The optimization regarding y was successful. optimal y: {optimal_y}, minimal g(s,y): {min_g_value}')
         else:
             optimal_y = None
             min_g_value = None
-            print(f'关于y的优化失败: {getattr(res, "message", "未知错误")}')
+            print(f'{getattr(res, "message", "未知错误")}')
     return optimal_y, min_g_value
 
 
