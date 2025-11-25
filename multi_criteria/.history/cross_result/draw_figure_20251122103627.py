@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_path = 'cross_mub_4.csv'
+file_path = 'cross_mub_2.csv'
 df = pd.read_csv(file_path)
 
 for col in ['Z1_y2_over_Z1_star', 'Z3_y2_over_Z3_star']:

@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-file_path = "cross_mub_2.csv" 
+file_path = "cross_mub_1.csv" 
 df = pd.read_csv(file_path)
 
 # df = df.sort_values(by="c/r")

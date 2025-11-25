@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_path = 'cross_mub_4.csv'
+file_path = 'cross_mub_1.csv'
 df = pd.read_csv(file_path)
 
 for col in ['Z1_y2_over_Z1_star', 'Z3_y2_over_Z3_star']:
@@ -76,5 +76,5 @@ plt.title(r'Relative Performance of $y_3$ vs. $\frac{\mu}{b}$ given $\frac{c}{r}
 plt.legend()    
 plt.grid(False)
 plt.tight_layout()
-# plt.savefig('cross4_3.pdf', format='pdf', bbox_inches='tight')
+plt.savefig('cross4_3.pdf', format='pdf', bbox_inches='tight')
 plt.show()

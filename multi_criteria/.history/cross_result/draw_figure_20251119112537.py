@@ -27,7 +27,7 @@ plt.legend()
 plt.grid(False)
 
 plt.tight_layout()
-# plt.savefig('cross4_2.pdf', format='pdf', bbox_inches='tight')
+plt.savefig('cross4_2.pdf', format='pdf', bbox_inches='tight')
 plt.show()
 
 
@@ -55,7 +55,7 @@ plt.legend()
 plt.grid(False)
 
 plt.tight_layout()
-# plt.savefig('cross4_1.pdf', format='pdf', bbox_inches='tight')
+plt.savefig('cross4_1.pdf', format='pdf', bbox_inches='tight')
 plt.show()
 
 for col in ['Z1_y3_over_Z1_star', 'Z2_star_over_Z2_y3']:
@@ -76,5 +76,5 @@ plt.title(r'Relative Performance of $y_3$ vs. $\frac{\mu}{b}$ given $\frac{c}{r}
 plt.legend()    
 plt.grid(False)
 plt.tight_layout()
-# plt.savefig('cross4_3.pdf', format='pdf', bbox_inches='tight')
+plt.savefig('cross4_3.pdf', format='pdf', bbox_inches='tight')
 plt.show()

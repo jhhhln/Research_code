@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-file_path = "cross_mub_2.csv" 
+file_path = "cross_mub_1.csv" 
 df = pd.read_csv(file_path)
 
 # df = df.sort_values(by="c/r")
@@ -21,9 +21,9 @@ plt.figure(figsize=(12, 8))
 for col in y_cols:
     plt.plot(cr, df[col], marker='o', linewidth=2, label=col)
 
-# # # # x1,x2,x3
-# for col in x_cols:
-#     plt.plot(cr, df[col], marker='s', linewidth=2, linestyle='--', label=col)
+# # # x1,x2,x3
+for col in x_cols:
+    plt.plot(cr, df[col], marker='s', linewidth=2, linestyle='--', label=col)
 
 # y_star_norm, y_star_uni
 # for col in star_cols:
