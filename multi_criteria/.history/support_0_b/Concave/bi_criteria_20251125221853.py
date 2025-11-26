@@ -100,7 +100,7 @@ def generate_pareto_frontier(I, m, c, r, b, num_points=20, filename="pareto_resu
     Z1_star, y_opt_Z1 = compute_Z1_values(I, m, c, r, b)
     Z3_star, y_opt_Z3 = compute_Z3_values(I, m, c, r, b)
     
-    print(f"理想点: Z1* = {Z1_star:.4f}, Z3* = {Z3_star:.4f}")
+    print(fZ1* = {Z1_star:.4f}, Z3* = {Z3_star:.4f}")
     
     # 创建权衡参数数组 (从0到1)
     alpha_values = np.linspace(0, 1, num_points)
